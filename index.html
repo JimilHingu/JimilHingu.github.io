@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometry Interactive Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <h2>Features Available</h2>
+        <nav class="sidebar-nav">
+            <a href="index.html">Home</a>
+            <a href="trigonometry.html">Trignomatory</a>
+            <a href="binaryconversion.html"> Binary Conversion </a>
+            <a href="Rooteqation.html">Quadratic Equation</a>
+            <a href="layouts.html" class="sidebar-button">Layouts</a>
+            <button id="darkModeToggle" style="margin-top: 20px;">Toggle Dark Mode</button>
+            <script src="DarkMode.js"></script>
+        </nav>
+
+
+    </aside>
+    <main class="content">
+
+
+        <header class="header">
+            <h1>Equation Engine</h1>
+        </header>
+        <section class="intro">
+            <p>Welcome to the Equation Engine, a state-of-the-art platform designed to demystify trigonometry through
+                dynamic visualization and interactive learning. Created with the purpose of enhancing understanding and
+                application, our platform brings a new dimension to math education.</p>
+        </section>
+
+        <section class="video-block">
+            <div class="vod-section">
+                <div class="video-container">
+                    <video class="vod" src="Trigonometry made easy (2).mp4" controls></video>
+                </div>
+                <div class="vod-description">
+                    <p>Dive deep into the world of trigonometry with our extensive video tutorials. From the
+                        foundational theories to the complex equations, our videos provide clear and detailed
+                        explanations of each concept. With our Advanced Learning Tools, you'll gain a solid
+                        understanding of trigonometry and its practical applications in real-world situations. Enhance
+                        your learning experience and grasp the intricacies of trigonometric functions in a way that's
+                        both engaging and accessible.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-block">
+            <div class="vod-section">
+                <div class="video-container">
+                    <video class="vod" src="How to Convert Binary to Decimal.mp4" controls></video>
+                </div>
+                <div class="vod-description">
+                    <p>Master the essential skills of binary to decimal conversion with our detailed video guides. Each
+                        tutorial is crafted to simplify this fundamental computing concept, making it easy to understand
+                        and apply. Whether you're a student or a professional, our step-by-step approach demystifies the
+                        process, providing you with the tools to confidently translate binary numbers into their decimal
+                        counterparts and unlock a deeper understanding of digital systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-block">
+            <div class="video-container">
+                <video class="vod" src="videoplayback.mp4" controls></video>
+            </div>
+            <div class="vod-description">
+                <p>Unlock the secrets of quadratic equations with our engaging video tutorials. Step into the realm of
+                    algebra and learn how to effortlessly determine the roots of any quadratic equation. Our videos
+                    guide you through each method with clarity and precision, from factoring to using the quadratic
+                    formula. Build your mathematical foundation and develop the skills to solve these equations, paving
+                    the way for success in advanced mathematical studies and real-life problem solving.</p>
+            </div>
+        </section>
+
+        <section class="video-details">
+            <p>Our video tutorials provide step-by-step explanations, showcasing the practical applications of
+                trigonometry. Engage with our content to discover how trigonometry underpins many technological
+                innovations.</p>
+        </section>
+
+
+        <div class="features">
+            <h2>Explore our Features</h2>
+            <div class="features-container">
+                <div class="feature-item">
+                    <p>Dive into the world of trigonometry with our comprehensive tools. Calculate and visualize all
+                        trigonometric functions, from sine and cosine to tangent and beyond. Understand complex
+                        trigonometric concepts through dynamic graphing and interactive examples.</p>
+                    <a href="trigonometry.html"><button>Explore Trigonometry</button></a>
+                </div>
+                <div class="feature-item">
+                    <p>Master the art of binary to decimal conversion with our intuitive learning platform. Our
+                        step-by-step guides and interactive tools make it easy to understand and apply this essential
+                        computing concept, ideal for students and professionals alike.</p>
+                    <a href="binaryconversion.html"><button>Learn Binary Conversion</button></a>
+                </div>
+                <div class="feature-item">
+                    <p>Unlock the mysteries of quadratic equations with our specialized solver. Learn how to find the
+                        roots using various methods, including factoring, completing the square, and the quadratic
+                        formula. Our tools make complex algebra simple and accessible.</p>
+                    <a href="Rooteqation.html"><button>Discover Quadratic Solutions</button></a>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <footer class="footer-section">
+        <div class="footer-content">
+            <h1>TRIGONOMETRY INTERACTIVE</h1>
+            <p>Submitted to:<br>
+                Submitted By: Jimil Hingu - T00703041</p>
+            <p>Date: <span id="currentDate"></span></p> 
+            <script>
+                const today = new Date();
+                const formattedDate = today.toLocaleDateString("en-US"); 
+                document.getElementById("currentDate").textContent = formattedDate;
+            </script>
+
+        </div>
+        <div class="footer-form">
+            <h2>Have any suggestions on how we can improve?</h2>
+            <p>Please write your points on what we can improve?</p>
+            <input type="text" placeholder="Your suggestions">
+            <button class="submit-button">Submit</button>
+            <p>Copyright &copy; 2023 YourWebsiteName</p>
+            <a href="https://youtu.be/GtpplO7xdqM?si=X83fQWQB8VDTLhpP">youtube(trignometry)</a> | 
+            <a href="https://youtu.be/rsxT4FfRBaM?si=0XgSoj00XAEHoui6">youtube(Binary converstion)</a> | 
+            <a href="https://youtu.be/IlNAJl36-10?si=cWQLdRkqxJgRbWXG">youtube(Quadratic Equation)</a> | 
+        </div>
+            
+    </footer>
+
+</body>
+
+</html>

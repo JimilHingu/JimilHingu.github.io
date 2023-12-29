@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Conversion Interactive Learning</title>
+    <link rel="stylesheet" href="styleForThreeTask.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <h2>Features Available</h2>
+        <nav class="sidebar-nav">
+            <a href="index.html">Home</a>
+            <a href="trigonometry.html">Trignomatory</a>
+            <a href="binaryconversion.html"> Binary Conversion </a>
+            <a href="Rooteqation.html">Quadratic Equation</a>
+            <button id="darkModeToggle" style="margin-top: 20px;">Toggle Dark Mode</button>
+            <script src="DarkMode.js"></script>
+        </nav>
+    </aside>
+    <main class="content">
+        <section id="binary-basics" class="binary-conversion-info">
+            <h2>Understanding Binary Conversion</h2>
+            <p>Binary conversion is essential in the digital world. It's the process of transforming data from the
+                decimal system, which is based on the number 10, into the binary system, which is based on the number 2.
+                This process is crucial because computers and electronic systems process and store all information in
+                binary format.</p>
+
+            <a href="binaryconversion.html">
+                <img src="BinaryconverionImage.jpg" alt="Binary Conversion Illustration">
+            </a>
+
+            <p>Understanding binary conversion allows programmers and engineers to interact with computers on the most
+                fundamental level, optimizing algorithms and understanding the intricacies of digital data processing.
+            </p>
+        </section>
+
+
+        <section id="conversion-methods" class="more-details">
+            <h2>Methods of Binary Conversion</h2>
+            <div class="scrollable-content">
+                <p>Converting decimal numbers to binary involves several methods:</p>
+                <ul>
+                    <li><strong>Division-Remainder Method:</strong> Divide the number by 2 and write down the remainder.
+                        Repeat with the quotient until you reach 0, then read the remainders backward.</li>
+                    <li><strong>Subtraction Method:</strong> Subtract the largest power of 2 until you reach 0, marking
+                        a 1 for each subtraction and a 0 where no subtraction is made.</li>
+                    <li><strong>Double Dabble:</strong> A technique often used in embedded systems for its efficiency
+                        without division operations.</li>
+                </ul>
+                <p>These methods are foundational for computer science students and professionals working with low-level
+                    programming or hardware design.</p>
+            </div>
+        </section>
+
+        <section id="real-world-binary" class="applications">
+            <h2>Applications of Binary Conversion</h2>
+            <div class="converter-container">
+                <div class="conversion-header">
+                    <h2>Converter</h2>
+                </div>
+                <div class="conversion-form">
+                    <div class="form-group">
+                        <label for="decimalInput">Enter Decimal Number</label>
+                        <input type="number" id="decimalInput" placeholder="Enter decimal number">
+                    </div>
+                    <div class="form-group">
+                        <button id="convertBtn" class="convert-button">Convert</button>
+                        <button id="swapBtn" class="swap-button">Swap</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="binaryOutput">Binary Output</label>
+                        <input type="text" id="binaryOutput" placeholder="Binary result" readonly>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>document.getElementById('convertBtn').addEventListener('click', convertToBinary);
+            document.getElementById('swapBtn').addEventListener('click', swapConversion);
+
+            function convertToBinary() {
+                var decimalNumber = document.getElementById('decimalInput').value;
+                var binaryNumber = (parseInt(decimalNumber, 10) >>> 0).toString(2);
+                document.getElementById('binaryOutput').value = binaryNumber.padStart(8, '0'); // Pad for 8 bits
+            }
+
+            function swapConversion() {
+                var decimalInputLabel = document.querySelector('label[for="decimalInput"]');
+                var binaryOutputLabel = document.querySelector('label[for="binaryOutput"]');
+                var decimalInput = document.getElementById('decimalInput');
+                var binaryOutput = document.getElementById('binaryOutput');
+
+                var tempLabel = decimalInputLabel.innerText;
+                decimalInputLabel.innerText = binaryOutputLabel.innerText;
+                binaryOutputLabel.innerText = tempLabel;
+
+                var tempPlaceholder = decimalInput.placeholder;
+                decimalInput.placeholder = binaryOutput.placeholder;
+                binaryOutput.placeholder = tempPlaceholder;
+
+                var tempValue = decimalInput.value;
+                decimalInput.value = binaryOutput.value;
+                binaryOutput.value = tempValue;
+
+                decimalInput.readOnly = !decimalInput.readOnly;
+                binaryOutput.readOnly = !binaryOutput.readOnly;
+
+                var convertBtn = document.getElementById('convertBtn');
+                if (decimalInput.readOnly) {
+                    convertBtn.innerText = 'Convert to Decimal';
+                } else {
+                    convertBtn.innerText = 'Convert to Binary';
+                }
+            }
+        </script>
+
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometry Interactive Learning</title>
+    <link rel="stylesheet" href="styleForThreeTask.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <h2>Features Available</h2>
+        <nav class="sidebar-nav">
+            <a href="index.html">Home</a>
+            <a href="trigonometry.html">Trignomatory</a>
+            <a href="binaryconversion.html"> Binary Conversion </a>
+            <a href="Rooteqation.html">Quadratic Equation</a>
+            <button id="darkModeToggle" style="margin-top: 20px;">Toggle Dark Mode</button>
+            <script src="DarkMode.js"></script>
+        </nav>
+    </aside>
+    <main class="content">
+        <section id="trig-basics" class="trigonometry-info">
+            <h2>What are Trigonometric Functions?</h2>
+            <p>Trigonometry employs six fundamental functions, which are essentially ratios derived from the sides of a
+                right-angled triangle. These include the sine, cosine, tangent, secant, cosecant, and cotangent
+                functions. Each trigonometric identity is determined by the ratio of two specific sides: the adjacent
+                side, the opposite side, and the hypotenuse—the triangle's longest side. Using trigonometric formulas,
+                one can calculate the values of these functions, which are essential in solving various geometric
+                problems.</p>
+            <img src="Angleimage.jpg" alt="Trigonometry Graph">
+
+
+        </section>
+
+        <section id="trig-functions" class="more-details">
+            <h2>Trigonometric Functions</h2>
+            <div class="scrollable-content">
+                <p>The basic formulas for calculating the trigonometric functions are:</p>
+
+                <h3>Sine (sin)</h3>
+                <p>sin θ = Opposite / Hypotenuse</p>
+
+                <h3>Cosine (cos)</h3>
+                <p>cos θ = Adjacent / Hypotenuse</p>
+
+                <h3>Tangent (tan)</h3>
+                <p>tan θ = Opposite / Adjacent</p>
+
+                <h3>Secant (sec)</h3>
+                <p>sec θ = Hypotenuse / Adjacent</p>
+
+                <h3>Cosecant (csc)</h3>
+                <p>csc θ = Hypotenuse / Opposite</p>
+
+                <h3>Cotangent (cot)</h3>
+                <p>cot θ = Adjacent / Opposite</p>
+            </div>
+        </section>
+
+        <section id="real-world" class="applications">
+            </head>
+
+            <body>
+                <div class="calculator">
+                    <div class="triangle" id="triangle"></div>
+                    <h2>Trigonometry Visual Calculator</h2>
+                    <label for="opposite">Length of Opposite Side:</label>
+                    <input type="number" id="opposite" placeholder="Enter length" oninput="updateTriangle()">
+
+                    <label for="adjacent">Length of Adjacent Side:</label>
+                    <input type="number" id="adjacent" placeholder="Enter length" oninput="updateTriangle()">
+
+                    <label for="trigFunction">Choose a Trigonometric Function:</label>
+                    <select id="trigFunction">
+                        <option value="sin">Sine (sin)</option>
+                        <option value="cos">Cosine (cos)</option>
+                        <option value="tan">Tangent (tan)</option>
+                        <option value="sec">Secant (sec)</option>
+                        <option value="cosec">Cosecant (cosec)</option>
+                        <option value="cot">Cotangent (cot)</option>
+                    </select>
+
+                    <button onclick="calculateTrigFunction()">Calculate</button>
+
+                    <div id="output"></div>
+                </div>
+
+                <script>
+                    function updateTriangle() {
+                        var opposite = document.getElementById('opposite').value;
+                        var adjacent = document.getElementById('adjacent').value;
+                        var triangle = document.getElementById('triangle');
+                        if (opposite > 360) opposite = 360;
+                        if (adjacent > 360) adjacent = 360;
+
+                        triangle.style.borderBottomWidth = `${opposite}px`;
+                        triangle.style.borderRightWidth = `${adjacent}px`;
+                    }
+
+                    function calculateTrigFunction() {
+                        var opposite = parseFloat(document.getElementById('opposite').value);
+                        var adjacent = parseFloat(document.getElementById('adjacent').value);
+                        var hypotenuse = Math.sqrt(opposite * opposite + adjacent * adjacent);
+                        var functionToCalculate = document.getElementById('trigFunction').value;
+                        var result;
+
+                        if (isNaN(opposite) || isNaN(adjacent) || opposite <= 0 || adjacent <= 0 || opposite > 360 || adjacent > 360) {
+                            document.getElementById('output').innerText = 'Please enter valid side lengths (not exceeding 360).';
+                            return;
+                        }
+                        switch (functionToCalculate) {
+                            case 'sin':
+                                result = opposite / hypotenuse;
+                                break;
+                            case 'cos':
+                                result = adjacent / hypotenuse;
+                                break;
+                            case 'tan':
+                                result = opposite / adjacent;
+                                break;
+                            case 'sec':
+                                if (adjacent !== 0) {
+                                    result = hypotenuse / adjacent;
+                                } else {
+                                    result = 'undefined';
+                                }
+                                break;
+                            case 'cosec':
+                                if (opposite !== 0) {
+                                    result = hypotenuse / opposite;
+                                } else {
+                                    result = 'undefined';
+                                }
+                                break;
+                            case 'cot':
+                                if (opposite !== 0) {
+                                    result = adjacent / opposite;
+                                } else {
+                                    result = 'undefined';
+                                }
+                                break;
+                            default:
+                                result = 'Invalid option';
+                                break;
+                        }
+
+                        if (result !== 'undefined') {
+                            result = `The ${functionToCalculate} is: ${result.toFixed(2)}`;
+                        } else {
+                            result = `The ${functionToCalculate} is undefined (division by zero).`;
+                        }
+
+                        document.getElementById('output').innerText = result;
+                    }
+                </script>
+            </body>
+        </section>
+
+        <section id="media" class="media">
+            <h2>Learning Resources</h2>
+            <p>Access a curated list of multimedia resources to bolster your understanding of trigonometric concepts.
+                Watch educational videos, listen to explanatory audio clips, and interact with dynamic simulations.</p>
+            <video controls>
+                <source src="Trigonometry made easy (2).mp4" type="video/mp4">
+                Unfortunately, your browser does not support embedded videos.
+            </video>
+            <p>More media resources will be added regularly to aid your learning journey.</p>
+        </section>
+    </main>
+</body>
+
+</html>
